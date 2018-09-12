@@ -106,8 +106,11 @@ endif()
 
 
 # Find HDF5 for dataset support
-find_package(HDF5 CONFIG REQUIRED COMPONENTS C shared)
 
+find_package(HDF5 CONFIG QUIET COMPONENTS C shared)
+if (NOT HDF5_FOUND)
+    find_package(HDF5 REQUIRED COMPONENTS C)
+endif()
 if (HDF5_FOUND)
     set (ISMRMRD_DATASET_SUPPORT true)
     set (ISMRMRD_DATASET_SOURCES libsrc/dataset.c libsrc/dataset.cpp)

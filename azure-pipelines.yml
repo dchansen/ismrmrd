@@ -15,7 +15,7 @@ steps:
     .\vcpkg update
     .\vcpkg install hdf5:x64-windows
     .\vcpkg install pugixml:x64-windows
-displayName: 'VCPKG setup'
+  displayName: 'VCPKG setup'
 - script: |
     mkdir build
     cd build 

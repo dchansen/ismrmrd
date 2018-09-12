@@ -11,7 +11,7 @@ steps:
     cd C:\
     git clone https://github.com/Microsoft/vcpkg.git
     cd vcpkg
-    .\bootstrap.bat
+    .\bootstrap-vcpkg.bat
     .\vcpkg integrate install
     .\vcpkg update
     .\vcpkg install hdf5:x64-windows

@@ -19,7 +19,7 @@ steps:
     vcpkg install hdf5:x64-windows
     vcpkg install pugixml:x64-windows
   displayName: 'VCPKG build'
-  workingDirectory: $(Agent.HomeDirectory)
+  workingDirectory: $(Agent.HomeDirectory)\vcpkg
 - script: |
     mkdir build
     cd build 

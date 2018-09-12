@@ -11,12 +11,14 @@ steps:
     git clone https://github.com/Microsoft/vcpkg.git
     cd vcpkg
     bootstrap-vcpkg.bat
-    penguin
+  workingDirectory: $(Agent.HomeDirectory)
+  displayName: 'VCPKG setup'
+- script: |    
     vcpkg integrate install
     vcpkg update
     vcpkg install hdf5:x64-windows
     vcpkg install pugixml:x64-windows
-  displayName: 'VCPKG setup'
+  displayName: 'VCPKG build'
   workingDirectory: $(Agent.HomeDirectory)
 - script: |
     mkdir build

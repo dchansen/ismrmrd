@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+pool:
+  vmImage: 'vs2017-win2017'
+
+steps:
+- script: |
+  cd C:\
+  git clone https://github.com/Microsoft/vcpkg.git
+  .\scripts\bootstrap.ps1
+  .\vcpkg integrate install
+  .\vcpkg update
+  .\vcpkg install hdf5:x64-windows
+  .\vcpkg install pugixml:x64-windows
+displayName: 'VCPKG setup'
+- script: |
+  mkdir build
+  cd build 
+  cmake .. -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\script\buildsystems\vcpkg.cmake -G "Visual Studio 15 2017 Win64"
+  cmake --build . --config Release
+
+  
+

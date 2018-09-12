@@ -1,0 +1,16 @@
+container:
+  image: gadgetron/ubuntu1604_base
+  cpu: 4
+  memory: 10G
+
+build_task:
+  build_cache:
+    folder: build
+  make_script:
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make -j
+
+
+

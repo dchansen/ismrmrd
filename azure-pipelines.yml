@@ -11,10 +11,10 @@ steps:
     git clone https://github.com/Microsoft/vcpkg.git
     cd vcpkg
     .\bootstrap-vcpkg.bat
-    .\vcpkg integrate install
-    .\vcpkg update
-    .\vcpkg install hdf5:x64-windows
-    .\vcpkg install pugixml:x64-windows
+    vcpkg integrate install
+    vcpkg update
+    vcpkg install hdf5:x64-windows
+    vcpkg install pugixml:x64-windows
   displayName: 'VCPKG setup'
   workingDirectory: $(Agent.HomeDirectory)
 - script: |

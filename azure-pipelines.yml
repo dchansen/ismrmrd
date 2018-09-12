@@ -8,19 +8,19 @@ pool:
 
 steps:
 - script: |
-  cd C:\
-  git clone https://github.com/Microsoft/vcpkg.git
-  .\scripts\bootstrap.ps1
-  .\vcpkg integrate install
-  .\vcpkg update
-  .\vcpkg install hdf5:x64-windows
-  .\vcpkg install pugixml:x64-windows
+    cd C:\
+    git clone https://github.com/Microsoft/vcpkg.git
+    .\scripts\bootstrap.ps1
+    .\vcpkg integrate install
+    .\vcpkg update
+    .\vcpkg install hdf5:x64-windows
+    .\vcpkg install pugixml:x64-windows
 displayName: 'VCPKG setup'
 - script: |
-  mkdir build
-  cd build 
-  cmake .. -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\script\buildsystems\vcpkg.cmake -G "Visual Studio 15 2017 Win64"
-  cmake --build . --config Release
+    mkdir build
+    cd build 
+    cmake .. -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\script\buildsystems\vcpkg.cmake -G "Visual Studio 15 2017 Win64"
+    cmake --build . --config Release
 
   
 

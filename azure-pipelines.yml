@@ -3,27 +3,33 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+resources:
+  containers:
+  - container: win-gadgetron
+    image: gradientsoftware/gadgetron-windows
 pool:
   vmImage: 'vs2017-win2017'
 
+container: win-gadgetron
 steps:
-- script: |
-    git clone https://github.com/Microsoft/vcpkg.git
-    cd vcpkg
-    bootstrap-vcpkg.bat
-  workingDirectory: $(Agent.HomeDirectory)
-  displayName: 'VCPKG setup'
-- script: |    
-    vcpkg integrate install
-    vcpkg update
-    vcpkg install hdf5:x64-windows
-    vcpkg install pugixml:x64-windows
-  displayName: 'VCPKG build'
-  workingDirectory: $(Agent.HomeDirectory)\vcpkg
+# - script: |
+#     git clone https://github.com/Microsoft/vcpkg.git
+#     cd vcpkg
+#     bootstrap-vcpkg.bat
+#   workingDirectory: $(Agent.HomeDirectory)
+#   displayName: 'VCPKG setup'
+# - script: |    
+#     vcpkg integrate install
+#     vcpkg update
+#     vcpkg install hdf5:x64-windows
+#     vcpkg install pugixml:x64-windows
+#   displayName: 'VCPKG build'
+#   workingDirectory: $(Agent.HomeDirectory)\vcpkg
 - script: |
     mkdir build
     cd build 
-    cmake .. -DCMAKE_TOOLCHAIN_FILE=$(Agent.HomeDirectory)\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 15 2017 Win64"
+    # cmake .. -DCMAKE_TOOLCHAIN_FILE=$(Agent.HomeDirectory)\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 15 2017 Win64"
+    cmake .. -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 15 2017 Win64"
     cmake --build . --config Release
 
   

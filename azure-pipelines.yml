@@ -8,7 +8,8 @@ resources:
   - container: win-gadgetron
     image: gradientsoftware/gadgetron-windows
 pool:
-  vmImage: 'vs2017-win2017'
+  vimImage: 'win1803'
+  # vmImage: 'vs2017-win2017'
 
 container: win-gadgetron
 steps:

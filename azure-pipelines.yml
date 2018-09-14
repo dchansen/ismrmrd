@@ -11,8 +11,8 @@ resources:
 jobs:
 - job: Windows
   pool:
-    #vmImage: 'win1803'
-    vmImage: 'vs2017-win2016'
+    vmImage: 'win1803'
+    # vmImage: 'vs2017-win2016'
 
   container: win-gadgetron
   steps:

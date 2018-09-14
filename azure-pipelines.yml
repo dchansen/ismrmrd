@@ -39,7 +39,7 @@ jobs:
   resources:
     containers:
       - container: ubuntu
-      image: gadgetron/ubuntu_1604_base
+        image: gadgetron/ubuntu_1604_base
   pool:
     vmImage: 'ubuntu-16.04'
   container: ubuntu

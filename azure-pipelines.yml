@@ -3,7 +3,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 jobs:
-  - job: Windows
+- job: Windows
 
   resources:
     containers:
@@ -36,19 +36,19 @@ jobs:
       cmake --build . --config Release
 
 - job: Linux
-resources:
-  containers:
-    - container: ubuntu
-    image: gadgetron/ubuntu_1604_base
-pool:
-  vmImage: 'ubuntu-16.04'
-container: ubuntu
-steps:
-- script: |
-  mkdir build
-  cd build
-  cmake ..
-  make -j
+  resources:
+    containers:
+      - container: ubuntu
+      image: gadgetron/ubuntu_1604_base
+  pool:
+    vmImage: 'ubuntu-16.04'
+  container: ubuntu
+  steps:
+  - script: |
+    mkdir build
+    cd build
+    cmake ..
+    make -j
 
 
   

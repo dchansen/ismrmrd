@@ -2,12 +2,12 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-  resources:
-    containers:
-      - container: ubuntu
-        image: gadgetron/ubuntu_1604_base
-      - container: win-gadgetron
-        image: gradientsoftware/gadgetron-windows
+resources:
+  containers:
+    - container: ubuntu
+      image: gadgetron/ubuntu_1604_base
+    - container: win-gadgetron
+      image: gradientsoftware/gadgetron-windows
 jobs:
 - job: Windows
   pool:

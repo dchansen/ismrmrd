@@ -2,13 +2,14 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-jobs:
-- job: Windows
-
   resources:
     containers:
-    - container: win-gadgetron
-      image: gradientsoftware/gadgetron-windows
+      - container: ubuntu
+        image: gadgetron/ubuntu_1604_base
+      - container: win-gadgetron
+        image: gradientsoftware/gadgetron-windows
+jobs:
+- job: Windows
   pool:
     #vmImage: 'win1803'
     vmImage: 'vs2017-win2016'
@@ -36,19 +37,15 @@ jobs:
       cmake --build . --config Release
 
 - job: Linux
-  resources:
-    containers:
-      - container: ubuntu
-        image: gadgetron/ubuntu_1604_base
   pool:
     vmImage: 'ubuntu-16.04'
   container: ubuntu
   steps:
   - script: |
-      mkdir build
-      cd build
-      cmake ..
-      make -j
+    mkdir build
+    cd build
+    cmake ..
+    make -j
 
 
   

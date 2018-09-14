@@ -45,10 +45,10 @@ jobs:
   container: ubuntu
   steps:
   - script: |
-    mkdir build
-    cd build
-    cmake ..
-    make -j
+      mkdir build
+      cd build
+      cmake ..
+      make -j
 
 
   
